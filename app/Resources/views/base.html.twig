@@ -1,13 +1,94 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Bienvenido!{% endblock %}Optime Consulting</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
+   <head>
+
+     <meta charset="UTF-8" />
+     <title>{% block title %}Bienvenido!{% endblock %} - Optime Consulting</title>
+
+      <!-- Bootstrap core CSS -->
+     <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+
+     <!-- Custom styles for this template -->
+     <link href="{{ asset('vendor/css/dashboard.css') }}" rel="stylesheet">
+
+     {% block stylesheets %}{% endblock %}
+     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+   </head>
+   <body>
+
+      <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+         <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="{{ path('home') }}">OPTIME CONSULTING</a>
+         <input class="form-control form-control-dark w-100" type="text" placeholder="Buscar producto o categoria" aria-label="Busca por producto o categoria">
+         <ul class="navbar-nav px-3">
+           <li class="nav-item text-nowrap">
+             <a class="nav-link" href="#">Sign out</a>
+           </li>
+         </ul>
+      </nav>
+      <div class="container-fluid">
+         <div class="row">
+           <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+             <div class="sidebar-sticky">
+               
+               <ul class="nav flex-column">
+                 <li class="nav-item">
+                   <a class="nav-link" href="{{ path('home') }}">
+                     <span data-feather="home"></span>
+                     Página principal
+                   </a>
+                 </li>
+               </ul>
+               <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                 <span>Productos</span>
+               </h6>
+               <ul class="nav flex-column">
+                 <li class="nav-item">
+                   <a class="nav-link" href="{{ path('products') }}">
+                     <span data-feather="file-text"></span>
+                     Lista 
+                   </a>
+                 </li>
+                 <li class="nav-item">
+                   <a class="nav-link" href="{{ path('new_product') }}">
+                     <span data-feather="plus-circle"></span>
+                     Nuevo Producto
+                   </a>
+                 </li>
+               </ul>
+
+               <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                 <span>Categorias (Productos)</span>
+               </h6>
+               <ul class="nav flex-column mb-2">
+                 <li class="nav-item">
+                   <a class="nav-link" href="{{ path('categories') }}">
+                     <span data-feather="file-text"></span>
+                     Lista
+                   </a>
+                 </li>
+                 <li class="nav-item">
+                   <a class="nav-link" href="{{ path('new_category') }}">
+                     <span data-feather="plus-circle"></span>
+                     Nueva Categoria
+                   </a>
+                 </li>
+               </ul>
+             </div>
+           </nav>
+         </div>
+      </div>
+      {% block body %}{% endblock %}
+
+
+      <script src="{{ asset('vendor/bootstrap/js/jquery-3.3.1.slim.min.js') }}"></script>
+      <script src="{{ asset('vendor/bootstrap/js/popper.min.js') }}"></script>
+      <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+
+      <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+      <script>
+         feather.replace();
+       </script>
         {% block javascripts %}{% endblock %}
     </body>
 </html>
