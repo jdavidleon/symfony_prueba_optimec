@@ -50,13 +50,6 @@ class Product
     private $brand;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="category_id", type="integer")
-     */
-    private $categoryId;
-
-    /**
      * @var float
      *
      * @ORM\Column(name="price", type="float")
@@ -174,30 +167,6 @@ class Product
     public function getBrand()
     {
         return $this->brand;
-    }
-
-    /**
-     * Set categoryId
-     *
-     * @param integer $category
-     *
-     * @return Product
-     */
-    public function setCategoryId($categoryId)
-    {
-        $this->categoryId = $categoryId;
-
-        return $this;
-    }
-
-    /**
-     * Get categoryId
-     *
-     * @return int
-     */
-    public function getCategoryId()
-    {
-        return $this->categoryId;
     }
 
     /**

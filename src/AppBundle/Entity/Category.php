@@ -201,4 +201,10 @@ class Category extends AbstractType
     {
         return $this->products;
     }
+
+    // convert to string
+    public function __toString()
+    {
+        return $this->nameCategory;
+    }
 }
