@@ -1,77 +1,37 @@
-Symfony Standard Edition
-========================
+## Symfony 3 - Simple CRUD aplication 
+It's a simple app to management product with it's categories developed by [jdavidleon](https://github.com/jdavidleon) using the Symfony PHP framework.
 
-**WARNING**: This distribution does not support Symfony 4. See the
-[Installing & Setting up the Symfony Framework][15] page to find a replacement
-that fits you best.
 
-Welcome to the Symfony Standard Edition - a fully-functional Symfony
-application that you can use as the skeleton for your new applications.
+Demo Pages -
 
-For details on how to download and get started with Symfony, see the
-[Installation][1] chapter of the Symfony Documentation.
 
-What's inside?
---------------
+### Include
+* Sinfony 3.4 (https://symfony.com/doc/3.4/index.html#gsc.tab=0)
+* Bootstrap 4 (http://getbootstrap.com)
+* Feather Icons (https://feathericons.com/)
 
-The Symfony Standard Edition is configured with the following defaults:
 
-  * An AppBundle you can use to start coding;
+### Features
+* Create Categories
+* Create Products whit category dependency
+* List Produts And Categories allowing to organize alphabetically by columns
+* Allows to edit products and categories
+* Allows to eliminate products after confirmation
+* Allows to control the products by activating or deactivating the categories
 
-  * Twig as the only configured template engine;
 
-  * Doctrine ORM/DBAL;
+### Pages 
+There are 7 pagesof which 1 is the homepage and for both products and categories correspond pages to list, add and edit items.  
 
-  * Swiftmailer;
+### Packages Included
 
-  * Annotations enabled for everything.
 
-It comes pre-configured with the following bundles:
 
-  * **FrameworkBundle** - The core Symfony framework bundle
+### Requirements
+* PHP 5.6.4
+* MySQL
 
-  * [**SensioFrameworkExtraBundle**][6] - Adds several enhancements, including
-    template and routing annotation capability
 
-  * [**DoctrineBundle**][7] - Adds support for the Doctrine ORM
-
-  * [**TwigBundle**][8] - Adds support for the Twig templating engine
-
-  * [**SecurityBundle**][9] - Adds security by integrating Symfony's security
-    component
-
-  * [**SwiftmailerBundle**][10] - Adds support for Swiftmailer, a library for
-    sending emails
-
-  * [**MonologBundle**][11] - Adds support for Monolog, a logging library
-
-  * **WebProfilerBundle** (in dev/test env) - Adds profiling functionality and
-    the web debug toolbar
-
-  * **SensioDistributionBundle** (in dev/test env) - Adds functionality for
-    configuring and working with Symfony distributions
-
-  * [**SensioGeneratorBundle**][13] (in dev env) - Adds code generation
-    capabilities
-
-  * [**WebServerBundle**][14] (in dev env) - Adds commands for running applications
-    using the PHP built-in web server
-
-  * **DebugBundle** (in dev/test env) - Adds Debug and VarDumper component
-    integration
-
-All libraries and bundles included in the Symfony Standard Edition are
-released under the MIT or BSD license.
-
-Enjoy!
-
-[1]:  https://symfony.com/doc/3.4/setup.html
-[6]:  https://symfony.com/doc/current/bundles/SensioFrameworkExtraBundle/index.html
-[7]:  https://symfony.com/doc/3.4/doctrine.html
-[8]:  https://symfony.com/doc/3.4/templating.html
-[9]:  https://symfony.com/doc/3.4/security.html
-[10]: https://symfony.com/doc/3.4/email.html
-[11]: https://symfony.com/doc/3.4/logging.html
-[13]: https://symfony.com/doc/current/bundles/SensioGeneratorBundle/index.html
-[14]: https://symfony.com/doc/current/setup/built_in_web_server.html
-[15]: https://symfony.com/doc/current/setup.html
+### Author
+**jdavidleon**
+- https://github.com/jdavidleon
