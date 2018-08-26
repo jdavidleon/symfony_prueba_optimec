@@ -10,4 +10,24 @@ namespace AppBundle\Repository;
  */
 class ProductRepository extends \Doctrine\ORM\EntityRepository
 {
+
+	// public function findProductsByCategory($id=null)
+	// {	
+	// 	$sql_where = '';
+	// 	if (!is_null($id)) {
+	// 		$sql_where = 'p.id = :id &&';
+	// 	}
+	//     $query = $this->getEntityManager()
+	//         ->createQuery(
+	//             'SELECT p, c FROM AppBundle:Product p
+	//             JOIN p.category c
+	//             WHERE '.$sql_where.' c.active = 1'
+	//         )->setParameter('id', $id);
+	 
+	//     try {
+	//         return $query->getSingleResult();
+	//     } catch (\Doctrine\ORM\NoResultException $e) {
+	//         return null;
+	//     }
+	// }
 }

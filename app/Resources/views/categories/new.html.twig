@@ -1,0 +1,31 @@
+
+{# app/Resources/views/blog/index.html.twig #}
+{% extends 'base.html.twig' %}
+{% block title %}
+	Nueva Categoria
+{% endblock %}
+
+{# CONTENIDO #}
+{% block body %}
+
+
+	<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+		<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+			<h1 class="h2">Agregar nueva Categoria</h1>
+		</div>
+		<div>
+			
+			{% if message != '' %}
+				<div class="alert alert-success" role="alert">
+				  {{message}}
+				</div>
+			{% endif %}
+
+		    {{ form_start(form) }}
+			{{ form_widget(form) }}
+			{{ form_end(form) }}
+		</div>
+
+	</main>
+
+{% endblock %}

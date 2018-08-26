@@ -5,6 +5,8 @@ namespace AppBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use AppBundle\Entity\Category;
+use AppBundle\Entity\Product;
 
 class DefaultController extends Controller
 {
@@ -13,17 +15,19 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        // replace this example code with whatever you need
+        $repository = $this->getDoctrine()->getRepository(Category::class);
         return $this->render('home/index.html.twig');
     }
 
     /**
-     * @Route("/products", name="products")
+     * @Route("/products/{category}", name="products")
      */
-    public function productsAction(Request $request)
+    public function productsAction(Request $request, $category="all")
     {
-        // replace this example code with whatever you need
-        return $this->render('home/index.html.twig');
+        $repository = $this->getDoctrine()->getRepository(Product::class);
+        $products = $repository->findAll();
+        return $this->render('products/list.html.twig',['products'=>$products]);
+
     }
 
     /**
@@ -35,21 +39,5 @@ class DefaultController extends Controller
         return $this->render('home/index.html.twig');
     }
 
-    /**
-     * @Route("/categories", name="categories")
-     */
-    public function categoriesAction(Request $request)
-    {
-        // replace this example code with whatever you need
-        return $this->render('home/index.html.twig');
-    }
-
-    /**
-     * @Route("/new_category", name="new_category")
-     */
-    public function new_category_Action(Request $request)
-    {
-        // replace this example code with whatever you need
-        return $this->render('home/index.html.twig');
-    }
+   
 }
