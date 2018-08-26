@@ -1,7 +1,7 @@
 {# app/Resources/views/blog/index.html.twig #}
 {% extends 'base.html.twig' %}
 {% block title %}
-	Lista de Categorias
+	Lista de Productos
 {% endblock %}
 
 {# CONTENIDO #}
@@ -11,76 +11,73 @@
 	<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
 		<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
 			<h1 class="h2">Lista de Productos</h1>
-			<div class="btn-toolbar mb-2 mb-md-0">
-			  	<div class="btn-group mr-2">
-			    <button class="btn btn-sm btn-outline-secondary">Share</button>
-			    <button class="btn btn-sm btn-outline-secondary">Export</button>
-			  	</div>
-			  	<button class="btn btn-sm btn-outline-secondary dropdown-toggle">
-			    <span data-feather="calendar"></span>
-			    This week
-			  	</button>
-			</div>
 		</div>
-      <div class="table-responsive">
-         <table class="table table-striped table-sm">
-            <thead>
-               <tr>
-                  <th>#</th>
-                  <th>Código</th>
-                  <th>Nombre</th>
-                  <th>Descripción</th>
-                  <th>Marca</th>
-                  <th>Categoria</th>
-                  <th>Precio</th>
-                  <th>Acción</th>
-               </tr>
-            </thead>
-            <tbody>
-            	{% for product in products %}
-	                  <td>{{ product.id }}</td>
-	                  <td>{{ product.code }}</td>
-	                  <td>{{ product.nameProduct }}</td>
-	                  <td>{{ product.descriptionProduct }}</td>
-	                  <td>{{ product.brand }}</td>
-	                  <td>{{ product.category }}</td>
-	                  <td>{{ product.price }}</td>
-	                  <td>
-	                  	<a class="text-info" href="{{ path('newProduct',{'id':product.id }) }}">
-	                  		<span data-feather="edit-2"></span>
-	                  	</a>  - 
-	                  	<a class="text-info" href="{{ path('deleteProduct',{'id':product.id }) }}">
-	                  		<span data-feather="trash-2"></span>
-	                  	</a> 
-	                  </td>
+
+		{% if insert %}
+			<div class="alert alert-success" role="alert">
+			  Producto Agregado!
+			</div>
+		{% endif %}
+
+      	<div class="table-responsive">
+         	<table class="table table-striped table-sm">
+	            <thead>
+	               <tr>
+	                  <th>#</th>
+	                  <th><a href="{{ path('product',{'order':'code' }) }}">Código<span data-feather="chevron-down"></span></a></th>
+	                  <th><a href="{{ path('product',{'order':'nameProduct' }) }}">Nombre<span data-feather="chevron-down"></span></a></th>
+	                  <th>Descripción</th>
+	                  <th>Marca</th>
+	                  <th><a href="{{ path('product',{'order':'category' }) }}">Categoria<span data-feather="chevron-down"></span></a></th>
+	                  <th><a href="{{ path('product',{'order':'price' }) }}">Precio<span data-feather="chevron-down"></span></a></th>
+	                  <th>Acción</th>
 	               </tr>
-				   {% endfor %}
-            </tbody>
-         </table>
+	            </thead>
+	            <tbody>
+	            	{% for product in products %}
+		                  <td>{{ product.id }}</td>
+		                  <td>{{ product.code }}</td>
+		                  <td>{{ product.nameProduct }}</td>
+		                  <td>{{ product.descriptionProduct }}</td>
+		                  <td>{{ product.brand }}</td>
+		                  <td>{{ product.category }}</td>
+		                  <td>{{ product.price }}</td>
+		                  <td>
+		                  	<a class="text-info" href="{{ path('newProduct',{'id':product.id }) }}">
+		                  		<span data-feather="edit-2"></span>
+		                  	</a>  - 
+		                  	<a class="text-info" onclick="confirmDelete()" href="{{ path('deleteProduct',{'id':product.id }) }}">
+		                  		<span data-feather="trash-2"></span>
+		                  	</a> 
+		                  </td>
+		               </tr>
+					   {% endfor %}
+	            </tbody>
+	        </table>
     	</div>
     	<p class="">
-	    	Página {{actualPage}} de
+	    	Página {{actualPage}} de {{maxPages}}
     	</p>
     	<nav aria-label="Page navigation example">
 		  	<ul class="pagination">
 		  		{% if actualPage > 1 %}
 		  			<li class="page-item">
-		  				<a class="page-link" href="{{ path('product',{page:actualPage-1<1?1:actualPage-1}) }}">Anterior</a>
+		  				<a class="page-link" href="{{ path('product',{currentPage:actualPage-1<1?1:actualPage-1}) }}">Anterior</a>
 		  			</li>
 				{% endif %}
 
-		  		{% for i in 1..2 %}
+		  		{% for i in 1..maxPages %}
 		    		<li class="page-item">
-		    			<a class="page-link" href="{{ path('product',{page:i}) }}">
+		    			<a class="page-link" href="{{ path('product',{currentPage:i}) }}">
 		    				{{i}}
 		    			</a>
 		    		</li>
 			   {% endfor %}
 
 
-		  		{% if actualPage < 2 %}
+		  		{% if actualPage < maxPages %}
 		  			<li class="page-item">
-		  				<a class="page-link" href="{{ path('product',{page:actualPage+1<=3?actualPage+1}) }}">Siguiente</a>
+		  				<a class="page-link" href="{{ path('product',{currentPage:actualPage+1<=maxPages?actualPage+1}) }}">Siguiente</a>
 		  			</li>
 				{% endif %}
 

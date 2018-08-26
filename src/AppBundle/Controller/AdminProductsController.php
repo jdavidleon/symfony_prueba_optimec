@@ -17,18 +17,28 @@ use AppBundle\Entity\Product;
 class AdminProductsController extends Controller
 {	
     /**
-     * @Route("/list/{page}", name="product")
+     * @Route("/list/{currentPage}/{order}/{insert}", name="product")
      */
-    public function productsAction(Request $request, $page=1)
+    public function productsAction(Request $request, $currentPage=1,$insert=null,$order='id')
     {   
-        $productsNum = 2;
-        $repository = $this->getDoctrine()->getRepository(Product::class);
-        $products = $repository->pageProducts($productsNum,$page);
-        // $maxPages = ceil($products->count() / $limit);
+
+        $em = $this->getDoctrine()->getManager();
+        $limit = 5;
+        $repository = $em->getRepository(Product::class);
+        $productsConsult = $repository->getAllProducts($currentPage,$limit,$order);
+        $productsResult = $productsConsult['paginator'];
+        $productQuery = $productsConsult['query'];
+
+        $products = $productQuery->execute();
+
+        $maxPages = ceil($productsConsult['paginator']->count() / $limit);
 
         return $this->render('products/list.html.twig',[
+            'productResult' => $productsResult,
             'products' => $products,
-            'actualPage' => $page
+            'actualPage' => $currentPage,
+            'maxPages'=>$maxPages,
+            'insert'=>$insert
         ]);
 
     }
@@ -48,10 +58,9 @@ class AdminProductsController extends Controller
         // Form Constructor
         $form = $this->createForm(ProductType::class, $product);
 
-        // Recoje la info
+        // Recive info
         $form->handleRequest($request);
 
-        $message = '';
         if ($form->isSubmitted() && $form->isValid()) {
             // Fill Entity Product
             $product = $form->getData();
@@ -60,12 +69,11 @@ class AdminProductsController extends Controller
             $entityManager->persist($product);
             $entityManager->flush();
 
-            $message = 'ok';
+            return $this->redirectToRoute('product', ['insert' => 'ok']);
         }
 
         return $this->render('products/new.html.twig',[
-            'form'=>$form->createView(),
-            'message' => $message
+            'form'=>$form->createView()
         ]);
     }
 

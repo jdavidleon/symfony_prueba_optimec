@@ -2,6 +2,8 @@
 
 namespace AppBundle\Repository;
 
+use Doctrine\ORM\Tools\Pagination\Paginator;
+
 /**
  * ProductRepository
  *
@@ -10,6 +12,32 @@ namespace AppBundle\Repository;
  */
 class ProductRepository extends \Doctrine\ORM\EntityRepository
 {	
+	public function paginate($dql, $page = 1, $limit = 3)
+	{
+	    $paginator = new Paginator($dql);
+
+	    $paginator->getQuery()
+	        ->setFirstResult($limit * ($page - 1)) // Offset
+	        ->setMaxResults($limit); // Limit
+
+	    return $paginator;
+	}
+
+	public function getAllProducts($currentPage = 1, $limit = 3, $order)
+	{
+	    // Create the query
+	    $query = $this->createQueryBuilder('p')
+	        ->leftJoin('p.category', 'c')
+            ->where('c.active = 1')
+            ->orderBy('p.'.$order)
+	        ->getQuery();
+
+
+	    $paginator = $this->paginate($query, $currentPage, $limit);
+
+	    return array('paginator' => $paginator, 'query' => $query);
+	}
+
 	// Return products with some number of elements
 	public function pageProducts($productsNum=2,$page=1)
 	{

@@ -9,35 +9,29 @@
 
 	<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
 		<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-		<h1 class="h2">Lista de Categorias</h1>
-		<div class="btn-toolbar mb-2 mb-md-0">
-		  <div class="btn-group mr-2">
-		    <button class="btn btn-sm btn-outline-secondary">Share</button>
-		    <button class="btn btn-sm btn-outline-secondary">Export</button>
-		  </div>
-		  <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
-		    <span data-feather="calendar"></span>
-		    This week
-		  </button>
+			<h1 class="h2">Lista de Categorias</h1>
 		</div>
-		</div>
-         <div class="table-responsive">
+
+		{% if insert %}
+			<div class="alert alert-success" role="alert">
+			  Categoria Agregada!
+			</div>
+		{% endif %}
+
+        <div class="table-responsive">
          <table class="table table-striped table-sm">
             <thead>
                <tr>
-                  <th>#</th>
-                  <th>Código</th>
-                  <th>Nombre</th>
-                  <th>Descripción</th>
-                  <th>Estado</th>
-                  <th>Acción</th>
+                  	<th>#</th>
+	                <th><a href="{{ path('categories',{'order':'code' }) }}">Código<span data-feather="chevron-down"></span></a></th>
+	                <th><a href="{{ path('categories',{'order':'nameCategory' }) }}">Nombre<span data-feather="chevron-down"></span></a></th>
+                  	<th>Descripción</th>
+	                <th><a href="{{ path('categories',{'order':'active' }) }}">Estado<span data-feather="chevron-down"></span></a></th>
+                  	<th>Acción</th>
                </tr>
             </thead>
             <tbody>
             	{% for category in categories %}
-				        {# <a href="{{ path('tapa',{'id':tapa.id}) }}"><h2>{{ tapa.nombre }}</h2></a>
-					        <p>{{ tapa.descripcion }}</p>
-	            	<tr> #}
 	                  <td>{{ category.id }}</td>
 	                  <td>{{ category.code }}</td>
 	                  <td>{{ category.nameCategory }}</td>
@@ -52,10 +46,7 @@
 	                  <td>
 	                  	<a class="text-info" href="{{ path('newCategory',{'id':category.id }) }}">
 	                  		<span data-feather="edit-2"></span>
-	                  	</a> - 
-	                  	<a class="text-danger" href="">
-	                  		<span data-feather="trash-2"></span>
-	                  	</a> 
+	                  	</a>
 	                  </td>
 	               </tr>
 				   {% endfor %}

@@ -87,8 +87,16 @@
 
       <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
       <script>
-         feather.replace();
-       </script>
-        {% block javascripts %}{% endblock %}
+        feather.replace();
+
+        function confirmDelete() {
+          if (!confirm('Confirma que deseas eliminar el elemento de forma permanente')) {
+            event.preventDefault();
+          }
+        }
+
+      </script>
+       {% block javascripts %}{% endblock %}
     </body>
 </html>
+          <form onsubmit="return validate(this);">

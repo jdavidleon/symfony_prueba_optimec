@@ -15,14 +15,20 @@ use AppBundle\Entity\Category;
 class AdminCategoriesController extends Controller
 {	
 	 /**
-     * @Route("/list", name="categories")
+     * @Route("/list/{order}/{insert}", name="categories")
      */
-    public function categoriesAction(Request $request)
+    public function categoriesAction(Request $request, $insert=null, $order='id')
     {   
         // Capturar el repositorio de la tabla contra la DB
         $repository = $this->getDoctrine()->getRepository(Category::class);
-        $categories = $repository->findAll();
-        return $this->render('categories/list.html.twig',['categories'=>$categories]);
+        // $categories = $repository->findAll();
+        $categoriesQ = $repository->createQueryBuilder('c')
+            ->orderBy('c.'.$order)
+            ->getQuery();
+
+        $categories = $categoriesQ->execute();
+
+        return $this->render('categories/list.html.twig',['categories'=>$categories, 'insert'=>$insert]);
     }
 
     /**
@@ -39,27 +45,24 @@ class AdminCategoriesController extends Controller
         // Form Constructor
         $form = $this->createForm(CategoryType::class, $category);
 
-        // Recoje la info
+        // Recive info
         $form->handleRequest($request);
 
-        $message = '';
         if ($form->isSubmitted() && $form->isValid()) {
             // Fill Entity Category
             $category = $form->getData();
             // $category->setActive(1);
-
 
             // Save new category
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($category);
             $entityManager->flush();
 
-            $message = 'ok';
+            return $this->redirectToRoute('categories', ['insert' => 'ok']);
         }
 
         return $this->render('categories/new.html.twig',[
-            'form'=>$form->createView(),
-            'message' => $message
+            'form'=>$form->createView()
         ]);
     }
 
