@@ -26,11 +26,16 @@ class AdminCategoriesController extends Controller
     }
 
     /**
-     * @Route("/newCategory", name="newCategory")
+     * @Route("/newCategory/{id}", name="newCategory")
      */
-    public function newCategoryAction(Request $request)
+    public function newCategoryAction(Request $request, $id=null)
     {   
-        $category = new Category();
+        if ($id) {
+            $repository = $this->getDoctrine()->getRepository(Category::class);
+            $category = $repository->find($id);   
+        }else{
+            $category = new Category();
+        }
         // Form Constructor
         $form = $this->createForm(CategoryType::class, $category);
 

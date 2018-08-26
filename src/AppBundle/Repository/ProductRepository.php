@@ -9,25 +9,16 @@ namespace AppBundle\Repository;
  * repository methods below.
  */
 class ProductRepository extends \Doctrine\ORM\EntityRepository
-{
-
-	// public function findProductsByCategory($id=null)
-	// {	
-	// 	$sql_where = '';
-	// 	if (!is_null($id)) {
-	// 		$sql_where = 'p.id = :id &&';
-	// 	}
-	//     $query = $this->getEntityManager()
-	//         ->createQuery(
-	//             'SELECT p, c FROM AppBundle:Product p
-	//             JOIN p.category c
-	//             WHERE '.$sql_where.' c.active = 1'
-	//         )->setParameter('id', $id);
-	 
-	//     try {
-	//         return $query->getSingleResult();
-	//     } catch (\Doctrine\ORM\NoResultException $e) {
-	//         return null;
-	//     }
-	// }
+{	
+	// Return products with some number of elements
+	public function pageProducts($productsNum=2,$page=1)
+	{
+		$query = $this->createQueryBuilder('p')
+		    ->leftJoin('p.category', 'c')
+            ->where('p.price > 1 AND c.active = 1')
+            ->setFirstResult($productsNum*($page-1))
+            ->setMaxResults($productsNum)
+            ->getQuery();
+        return $query->getResult();
+	}
 }

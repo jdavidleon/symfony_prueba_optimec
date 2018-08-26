@@ -10,19 +10,19 @@
 
 	<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
 		<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-		<h1 class="h2">Lista de Productos</h1>
-		<div class="btn-toolbar mb-2 mb-md-0">
-		  <div class="btn-group mr-2">
-		    <button class="btn btn-sm btn-outline-secondary">Share</button>
-		    <button class="btn btn-sm btn-outline-secondary">Export</button>
-		  </div>
-		  <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
-		    <span data-feather="calendar"></span>
-		    This week
-		  </button>
+			<h1 class="h2">Lista de Productos</h1>
+			<div class="btn-toolbar mb-2 mb-md-0">
+			  	<div class="btn-group mr-2">
+			    <button class="btn btn-sm btn-outline-secondary">Share</button>
+			    <button class="btn btn-sm btn-outline-secondary">Export</button>
+			  	</div>
+			  	<button class="btn btn-sm btn-outline-secondary dropdown-toggle">
+			    <span data-feather="calendar"></span>
+			    This week
+			  	</button>
+			</div>
 		</div>
-		</div>
-         <div class="table-responsive">
+      <div class="table-responsive">
          <table class="table table-striped table-sm">
             <thead>
                <tr>
@@ -33,6 +33,7 @@
                   <th>Marca</th>
                   <th>Categoria</th>
                   <th>Precio</th>
+                  <th>Acción</th>
                </tr>
             </thead>
             <tbody>
@@ -44,11 +45,48 @@
 	                  <td>{{ product.brand }}</td>
 	                  <td>{{ product.category }}</td>
 	                  <td>{{ product.price }}</td>
+	                  <td>
+	                  	<a class="text-info" href="{{ path('newProduct',{'id':product.id }) }}">
+	                  		<span data-feather="edit-2"></span>
+	                  	</a>  - 
+	                  	<a class="text-info" href="{{ path('deleteProduct',{'id':product.id }) }}">
+	                  		<span data-feather="trash-2"></span>
+	                  	</a> 
+	                  </td>
 	               </tr>
 				   {% endfor %}
             </tbody>
-            </table>
-          </div>
+         </table>
+    	</div>
+    	<p class="">
+	    	Página {{actualPage}} de
+    	</p>
+    	<nav aria-label="Page navigation example">
+		  	<ul class="pagination">
+		  		{% if actualPage > 1 %}
+		  			<li class="page-item">
+		  				<a class="page-link" href="{{ path('product',{page:actualPage-1<1?1:actualPage-1}) }}">Anterior</a>
+		  			</li>
+				{% endif %}
+
+		  		{% for i in 1..2 %}
+		    		<li class="page-item">
+		    			<a class="page-link" href="{{ path('product',{page:i}) }}">
+		    				{{i}}
+		    			</a>
+		    		</li>
+			   {% endfor %}
+
+
+		  		{% if actualPage < 2 %}
+		  			<li class="page-item">
+		  				<a class="page-link" href="{{ path('product',{page:actualPage+1<=3?actualPage+1}) }}">Siguiente</a>
+		  			</li>
+				{% endif %}
+
+
+		  	</ul>
+		</nav>
 	</main>
 
 {% endblock %}

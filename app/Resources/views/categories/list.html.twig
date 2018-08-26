@@ -29,6 +29,8 @@
                   <th>Código</th>
                   <th>Nombre</th>
                   <th>Descripción</th>
+                  <th>Estado</th>
+                  <th>Acción</th>
                </tr>
             </thead>
             <tbody>
@@ -40,6 +42,21 @@
 	                  <td>{{ category.code }}</td>
 	                  <td>{{ category.nameCategory }}</td>
 	                  <td>{{ category.descriptionCategory }}</td>
+	                  <td>
+						{% if category.active == 1 %}
+						    Activo 
+						{% else %}
+						    Inactivo
+						{% endif %}
+	                  </td>
+	                  <td>
+	                  	<a class="text-info" href="{{ path('newCategory',{'id':category.id }) }}">
+	                  		<span data-feather="edit-2"></span>
+	                  	</a> - 
+	                  	<a class="text-danger" href="">
+	                  		<span data-feather="trash-2"></span>
+	                  	</a> 
+	                  </td>
 	               </tr>
 				   {% endfor %}
             </tbody>

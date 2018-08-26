@@ -17,22 +17,34 @@ use AppBundle\Entity\Product;
 class AdminProductsController extends Controller
 {	
     /**
-     * @Route("/list", name="product")
+     * @Route("/list/{page}", name="product")
      */
-    public function productsAction(Request $request1)
-    {
+    public function productsAction(Request $request, $page=1)
+    {   
+        $productsNum = 2;
         $repository = $this->getDoctrine()->getRepository(Product::class);
-        $products = $repository->findAll();
-        return $this->render('products/list.html.twig',['products'=>$products]);
+        $products = $repository->pageProducts($productsNum,$page);
+        // $maxPages = ceil($products->count() / $limit);
+
+        return $this->render('products/list.html.twig',[
+            'products' => $products,
+            'actualPage' => $page
+        ]);
 
     }
 
     /**
-     * @Route("/newProduct", name="newProduct")
+     * @Route("/newProduct/{id}", name="newProduct")
      */
-    public function newProductAction(Request $request)
+    public function newProductAction(Request $request, $id=null)
     {   
-        $product = new Product();
+        if ($id) {
+            $repository = $this->getDoctrine()->getRepository(Product::class);
+            $product = $repository->find($id); 
+        } else {
+            $product = new Product();
+        }
+        
         // Form Constructor
         $form = $this->createForm(ProductType::class, $product);
 
@@ -55,6 +67,26 @@ class AdminProductsController extends Controller
             'form'=>$form->createView(),
             'message' => $message
         ]);
+    }
+
+    /**
+     * @Route("/deleteProduct/{id}", name="deleteProduct")
+     */
+    public function deleteProductAction(Request $request, $id=null)
+    {   
+        if ($id) {
+            $repository = $this->getDoctrine()->getRepository(Product::class);
+            $product = $repository->find($id); 
+        } else {
+            $product = new Product();
+        }
+    
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->remove($product);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('product');
+        
     }
 
 }
