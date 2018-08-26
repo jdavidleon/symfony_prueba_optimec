@@ -16,12 +16,12 @@ class ProductType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-          ->add('code', TextType::class)
-          ->add('category', EntityType::class, array('class' => Category::class))
-          ->add('nameProduct', TextType::class)
-          ->add('descriptionProduct', TextareaType::class)
-          ->add('brand', TextType::class)
+          ->add('code', TextType::class, array('label' => 'Código'))
+          ->add('category', EntityType::class, array('class' => Category::class, 'label' => 'Categoria'))
+          ->add('nameProduct', TextType::class, array('label' => 'Nombre'))
+          ->add('descriptionProduct', TextareaType::class, array('label' => 'Descripción'))
+          ->add('brand', TextType::class, array('label' => 'Marca'))
           ->add('price')
-          ->add('Nueva', SubmitType::class, array('label' => 'Crear Categoria'));
+          ->add('Nueva', SubmitType::class, array('label' => 'Crear Producto'));
     }
 }

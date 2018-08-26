@@ -4,6 +4,8 @@ namespace AppBundle\Entity;
 
 use Symfony\Component\Form\AbstractType;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -11,6 +13,8 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="category")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\CategoryRepository")
+ * @UniqueEntity("code")
+ * @UniqueEntity("nameCategory")
  */
 class Category extends AbstractType
 {   
@@ -37,6 +41,16 @@ class Category extends AbstractType
      * @var string
      *
      * @ORM\Column(name="code", type="string", length=10, unique=true)
+     * @Assert\NotBlank()
+     * @Assert\Regex(
+     *     pattern="/\W/",
+     *     match=false,
+     *     message="El codigo solo permite letras, numeros y _"
+     * )
+     * @Assert\Length(
+     *      min = 2,
+     *      minMessage = "El Código debe tener mínimo {{ limit }} caracteres",
+     * )
      */
     private $code;
 
@@ -44,6 +58,7 @@ class Category extends AbstractType
      * @var string
      *
      * @ORM\Column(name="name_category", type="string", length=255, unique=true)
+     * @Assert\NotBlank()
      */
     private $nameCategory;
 
@@ -51,6 +66,7 @@ class Category extends AbstractType
      * @var string
      *
      * @ORM\Column(name="description_category", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $descriptionCategory;
 

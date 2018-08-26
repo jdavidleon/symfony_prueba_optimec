@@ -2,6 +2,8 @@
 
 namespace AppBundle\Entity;
 
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -9,6 +11,8 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="product")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ProductRepository")
+ * @UniqueEntity("code")
+ * @UniqueEntity("nameProduct")
  */
 class Product
 {
@@ -25,6 +29,18 @@ class Product
      * @var string
      *
      * @ORM\Column(name="code", type="string", length=10, unique=true)
+     * @Assert\NotBlank()
+     * @Assert\Length(
+     *      min = 4,
+     *      max = 10,
+     *      minMessage = "El código debe contener mínimo {{ limit }} caracteres",
+     *      maxMessage = "El código debe contener máximo {{ limit }} caracteres"
+     * )
+     * @Assert\Regex(
+     *     pattern="/\W/",
+     *     match=false,
+     *     message="El codigo solo permite letras, numeros y _"
+     * )
      */
     private $code;
 
@@ -32,6 +48,11 @@ class Product
      * @var string
      *
      * @ORM\Column(name="name_product", type="string", length=255, unique=true)
+     * @Assert\NotBlank()
+     * @Assert\Length(
+     *      min = 4,
+     *      minMessage = "El Nombre debe tener mínimo {{ limit }} caracteres",
+     * )
      */
     private $nameProduct;
 
@@ -39,6 +60,7 @@ class Product
      * @var string
      *
      * @ORM\Column(name="description_product", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $descriptionProduct;
 
@@ -46,6 +68,7 @@ class Product
      * @var string
      *
      * @ORM\Column(name="brand", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $brand;
 
@@ -53,12 +76,14 @@ class Product
      * @var float
      *
      * @ORM\Column(name="price", type="float")
+     * @Assert\NotBlank()
      */
     private $price;
 
     /**
      * @ORM\ManyToOne(targetEntity="Category", inversedBy="products")
      * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     * @Assert\NotBlank()
      */
     private $category;
 
