@@ -1,8 +1,5 @@
-## Symfony 3 - Simple CRUD aplication 
-It's a simple app to management product with it's categories developed by [jdavidleon](https://github.com/jdavidleon) using the Symfony PHP framework.
-
-
-Demo Pages -
+## Symfony 3 - Simple CRUD application 
+It's a simple app to management products with its categories, developed by [jdavidleon](https://github.com/jdavidleon) using the Symfony PHP framework.
 
 
 ### Include
@@ -12,23 +9,20 @@ Demo Pages -
 
 
 ### Features
-* Create Categories
-* Create Products whit category dependency
-* List Produts And Categories allowing to organize alphabetically by columns
-* Allows to edit products and categories
-* Allows to eliminate products after confirmation
-* Allows to control the products by activating or deactivating the categories
+* Create Categories.
+* Create Products with category dependency.
+* List Produts And Categories allowing to organize alphabetically by columns.
+* Allows to edit products and categories.
+* Allows to eliminate products after confirmation.
+* Allows to control the products by activating or deactivating the categories.
 
 
 ### Pages 
-There are 7 pagesof which 1 is the homepage and for both products and categories correspond pages to list, add and edit items.  
-
-### Packages Included
-
+There are 7 pages of which 1 is the homepage and for both products and categories correspond to list pages, add and edit items.  
 
 
 ### Requirements
-* PHP 5.6.4
+* PHP 5.5.9 or higher
 * MySQL
 
 

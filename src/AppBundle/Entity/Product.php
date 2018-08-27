@@ -77,6 +77,10 @@ class Product
      *
      * @ORM\Column(name="price", type="float")
      * @Assert\NotBlank()
+     * @Assert\Type(
+     *   type="float",
+     *   message="El valor no es un número válido."
+     * )
      */
     private $price;
 

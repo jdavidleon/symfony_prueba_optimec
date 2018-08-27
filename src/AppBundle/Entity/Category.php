@@ -47,10 +47,6 @@ class Category extends AbstractType
      *     match=false,
      *     message="El codigo solo permite letras, numeros y _"
      * )
-     * @Assert\Length(
-     *      min = 2,
-     *      minMessage = "El Código debe tener mínimo {{ limit }} caracteres",
-     * )
      */
     private $code;
 
@@ -59,6 +55,10 @@ class Category extends AbstractType
      *
      * @ORM\Column(name="name_category", type="string", length=255, unique=true)
      * @Assert\NotBlank()
+     * @Assert\Length(
+     *      min = 2,
+     *      minMessage = "El Nombre debe tener mínimo {{ limit }} caracteres",
+     * )
      */
     private $nameCategory;
 
