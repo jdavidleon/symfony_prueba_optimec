@@ -19,9 +19,9 @@ class AdminCategoriesController extends Controller
      */
     public function categoriesAction(Request $request, $insert=null, $order='id')
     {   
-        // Capturar el repositorio de la tabla contra la DB
+        // Gewt the repository of table 
         $repository = $this->getDoctrine()->getRepository(Category::class);
-        // $categories = $repository->findAll();
+
         $categoriesQ = $repository->createQueryBuilder('c')
             ->orderBy('c.'.$order)
             ->getQuery();
