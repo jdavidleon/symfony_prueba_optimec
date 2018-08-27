@@ -23,12 +23,16 @@ class ProductRepository extends \Doctrine\ORM\EntityRepository
 	    return $paginator;
 	}
 
-	public function getAllProducts($currentPage = 1, $limit = 3, $order)
-	{
+	public function getAllProducts($currentPage = 1, $limit = 3, $order, $idCategory=null)
+	{	
+		$filterCategory = '';
+		if ($idCategory) {
+			$filterCategory = 'AND c.id = '.$idCategory;
+		}
 	    // Create the query
 	    $query = $this->createQueryBuilder('p')
 	        ->leftJoin('p.category', 'c')
-            ->where('c.active = 1')
+            ->where('c.active = 1 '.$filterCategory)
             ->orderBy('p.'.$order)
 	        ->getQuery();
 
@@ -36,17 +40,5 @@ class ProductRepository extends \Doctrine\ORM\EntityRepository
 	    $paginator = $this->paginate($query, $currentPage, $limit);
 
 	    return array('paginator' => $paginator, 'query' => $query);
-	}
-
-	// Return products with some number of elements
-	public function pageProducts($productsNum=2,$page=1)
-	{
-		$query = $this->createQueryBuilder('p')
-		    ->leftJoin('p.category', 'c')
-            ->where('p.price > 1 AND c.active = 1')
-            ->setFirstResult($productsNum*($page-1))
-            ->setMaxResults($productsNum)
-            ->getQuery();
-        return $query->getResult();
 	}
 }

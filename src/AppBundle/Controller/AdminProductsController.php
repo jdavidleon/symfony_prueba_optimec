@@ -19,13 +19,13 @@ class AdminProductsController extends Controller
     /**
      * @Route("/list/{currentPage}/{order}/{insert}", name="product")
      */
-    public function productsAction(Request $request, $currentPage=1,$insert=null,$order='id')
+    public function productsAction(Request $request, $currentPage=1, $insert=null, $order='id',$category=null)
     {   
 
         $em = $this->getDoctrine()->getManager();
         $limit = 5;
         $repository = $em->getRepository(Product::class);
-        $productsConsult = $repository->getAllProducts($currentPage,$limit,$order);
+        $productsConsult = $repository->getAllProducts($currentPage,$limit,$order,$category);
         $productsResult = $productsConsult['paginator'];
         $productQuery = $productsConsult['query'];
 
@@ -38,7 +38,8 @@ class AdminProductsController extends Controller
             'products' => $products,
             'actualPage' => $currentPage,
             'maxPages'=>$maxPages,
-            'insert'=>$insert
+            'insert'=>$insert,
+            'order'=>$order,
         ]);
 
     }
@@ -46,7 +47,7 @@ class AdminProductsController extends Controller
     /**
      * @Route("/newProduct/{id}", name="newProduct")
      */
-    public function newProductAction(Request $request, $id=null)
+    public function newProductAction(Request $request, $id=null, $category=null)
     {   
         if ($id) {
             $repository = $this->getDoctrine()->getRepository(Product::class);

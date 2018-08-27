@@ -10,7 +10,7 @@
 
 	<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
 		<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-			<h1 class="h2">Lista de Productos</h1>
+			<h1 class="h2">Lista de Productos (Categoria)</h1>
 		</div>
 
 		{% if insert %}
@@ -23,12 +23,12 @@
 	            <thead>
 	               <tr>
 	                  <th>#</th>
-	                  <th><a href="{{ path('product',{'order':'code' }) }}">Código<span data-feather="chevron-down"></span></a></th>
-	                  <th><a href="{{ path('product',{'order':'nameProduct' }) }}">Nombre<span data-feather="chevron-down"></span></a></th>
+	                  <th><a href="{{ path('categoriesFilter',{'order':'code', 'categoryId':categoryId }) }}">Código<span data-feather="chevron-down"></span></a></th>
+	                  <th><a href="{{ path('categoriesFilter',{'order':'nameProduct', 'categoryId':categoryId }) }}">Nombre<span data-feather="chevron-down"></span></a></th>
 	                  <th>Descripción</th>
 	                  <th>Marca</th>
-	                  <th><a href="{{ path('product',{'order':'category' }) }}">Categoria<span data-feather="chevron-down"></span></a></th>
-	                  <th><a href="{{ path('product',{'order':'price' }) }}">Precio<span data-feather="chevron-down"></span></a></th>
+	                  <th><a href="{{ path('categoriesFilter',{'order':'category', 'categoryId':categoryId }) }}">Categoria<span data-feather="chevron-down"></span></a></th>
+	                  <th><a href="{{ path('categoriesFilter',{'order':'price', 'categoryId':categoryId }) }}">Precio<span data-feather="chevron-down"></span></a></th>
 	                  <th>Acción</th>
 	               </tr>
 	            </thead>
@@ -39,7 +39,7 @@
 		                  <td>{{ product.nameProduct }}</td>
 		                  <td>{{ product.descriptionProduct }}</td>
 		                  <td>{{ product.brand }}</td>
-		                  <td><a href="{{ path('categoriesFilter', {'categoryId': product.category.id }) }}">{{ product.category }}</a></td>
+		                  <td>{{ product.category }}</td>
 		                  <td>{{ product.price }}</td>
 		                  <td>
 		                  	<a class="text-info" href="{{ path('newProduct',{'id':product.id }) }}">
@@ -61,13 +61,13 @@
 		  	<ul class="pagination">
 		  		{% if actualPage > 1 %}
 		  			<li class="page-item">
-		  				<a class="page-link" href="{{ path('product',{currentPage:actualPage-1<1?1:actualPage-1, 'order':order}) }}">Anterior</a>
+		  				<a class="page-link" href="{{ path('categoriesFilter',{currentPage:actualPage-1<1?1:actualPage-1, 'categoryId':categoryId, 'order':order}) }}">Anterior</a>
 		  			</li>
 				{% endif %}
 
 		  		{% for i in 1..maxPages %}
 		    		<li class="page-item">
-		    			<a class="page-link" href="{{ path('product',{currentPage:i, 'order':order}) }}">
+		    			<a class="page-link" href="{{ path('categoriesFilter',{currentPage:i, 'categoryId':categoryId, 'order':order}) }}">
 		    				{{i}}
 		    			</a>
 		    		</li>
@@ -76,7 +76,7 @@
 
 		  		{% if actualPage < maxPages %}
 		  			<li class="page-item">
-		  				<a class="page-link" href="{{ path('product',{currentPage:actualPage+1<=maxPages?actualPage+1, 'order':order}) }}">Siguiente</a>
+		  				<a class="page-link" href="{{ path('categoriesFilter',{currentPage:actualPage+1<=maxPages?actualPage+1, 'categoryId':categoryId, 'order':order}) }}">Siguiente</a>
 		  			</li>
 				{% endif %}
 

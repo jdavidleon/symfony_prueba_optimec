@@ -4,9 +4,11 @@ namespace AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use AppBundle\Form\CategoryType;
 use AppBundle\Entity\Category;
+use AppBundle\Entity\Product;
 
 
 /**
@@ -29,6 +31,36 @@ class AdminCategoriesController extends Controller
         $categories = $categoriesQ->execute();
 
         return $this->render('categories/list.html.twig',['categories'=>$categories, 'insert'=>$insert]);
+    }
+
+    /**
+     * @Route("/products/{currentPage}/{order}/{categoryId}", name="categoriesFilter")
+    */
+    public function productsByCatAction(Request $request, $currentPage=1, $categoryId=null, $order="id")
+    {   
+        if(!$categoryId){
+            return new Response('Error: Ninguna categoria seleccionada');
+        }
+        $em = $this->getDoctrine()->getManager();
+        $limit = 5;
+        $repository = $em->getRepository(Product::class);
+        $productsConsult = $repository->getAllProducts($currentPage,$limit,$order,$categoryId);
+        $productsResult = $productsConsult['paginator'];
+        $productQuery = $productsConsult['query'];
+
+        $products = $productQuery->execute();
+
+        $maxPages = ceil($productsConsult['paginator']->count() / $limit);
+
+        return $this->render('categories/filterList.html.twig',[
+            'productResult' => $productsResult,
+            'products' => $products,
+            'actualPage' => $currentPage,
+            'maxPages'=>$maxPages,
+            'categoryId'=>$categoryId,
+            'order'=>$order,
+            'insert'=>null
+        ]);
     }
 
     /**

@@ -8,12 +8,6 @@ use Symfony\Component\Validator\Validation;
 
 class AdminCategoriesControllerTest extends WebTestCase
 {	
-	public function testList()
-	{
-        $client = static::createClient();
-        $crawler = $client->request('GET', '/categories/list');
-		$this->assertEquals(200, $client->getResponse()->getStatusCode());
-	}
 
     public function testNewCategory()
     {
