@@ -1,9 +1,11 @@
 ## Symfony 3 - Simple CRUD application 
 It's a simple app to management products with its categories, developed by [jdavidleon](https://github.com/jdavidleon) using the Symfony PHP framework.
 
+- [DEMO](https://liliaceous-zones.000webhostapp.com/web/)
+
 
 ### Include
-* Sinfony 3.4 (https://symfony.com/doc/3.4/index.html#gsc.tab=0)
+* Symfony 3.4 (https://symfony.com/doc/3.4/index.html#gsc.tab=0)
 * Bootstrap 4 (http://getbootstrap.com)
 * Feather Icons (https://feathericons.com/)
 
