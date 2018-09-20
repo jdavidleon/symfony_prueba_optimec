@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="46527b7e-3848-41d0-a011-835f85f494fd" name="Default Changelist" comment="">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AppBundle/Repository/ProductRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/Repository/ProductRepository.php" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+>>>>>>> parent of 206d47d... Elimina product Category
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -72,8 +76,13 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
+<<<<<<< HEAD
               <first_editor relative-caret-position="170">
                 <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+=======
+              <first_editor relative-caret-position="238">
+                <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+>>>>>>> parent of 206d47d... Elimina product Category
               </first_editor>
               <second_editor />
             </state>
@@ -289,18 +298,26 @@
       <option name="presentableId" value="Default" />
       <updated>1537392498599</updated>
       <workItem from="1537392500286" duration="1576000" />
+<<<<<<< HEAD
       <workItem from="1537451043393" duration="6162000" />
+=======
+      <workItem from="1537451043393" duration="3409000" />
+>>>>>>> parent of 206d47d... Elimina product Category
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="7738000" />
+=======
+    <option name="totallyTimeSpent" value="4985000" />
+>>>>>>> parent of 206d47d... Elimina product Category
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14658849" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14658849" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -313,7 +330,11 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
+<<<<<<< HEAD
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.36008677" />
+=======
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.329718" />
+>>>>>>> parent of 206d47d... Elimina product Category
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -389,8 +410,13 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
+<<<<<<< HEAD
           <first_editor relative-caret-position="170">
             <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+=======
+          <first_editor relative-caret-position="238">
+            <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+>>>>>>> parent of 206d47d... Elimina product Category
           </first_editor>
           <second_editor />
         </state>
