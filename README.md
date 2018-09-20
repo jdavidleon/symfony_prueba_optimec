@@ -17,7 +17,7 @@ It's a simple app to management products with its categories, developed by [jdav
 * List Produts And Categories allowing to organize alphabetically by columns.
 * Allows to edit products and categories.
 * Allows to eliminate products after confirmation.
-* Allows to control the products by activating or deactivating the categories.
+* Allows to control thegit t products by activating or deactivating the categories.
 
 
 ### Pages 
