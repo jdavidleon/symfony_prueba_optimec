@@ -3,11 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="46527b7e-3848-41d0-a011-835f85f494fd" name="Default Changelist" comment="">
 <<<<<<< HEAD
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AppBundle/Repository/ProductRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/Repository/ProductRepository.php" afterDir="false" />
 =======
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
 >>>>>>> parent of 206d47d... Elimina product Category
+=======
+      <change beforePath="$PROJECT_DIR$/src/AppBundle/Repository/CategoryRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/Repository/CategoryRepository.php" afterDir="false" />
+>>>>>>> hotfix/1.0.0
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,15 +48,25 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
+<<<<<<< HEAD
           <entry key="md" value="7" />
           <entry key="php" value="10" />
+=======
+          <entry key="md" value="2" />
+          <entry key="php" value="54" />
+>>>>>>> hotfix/1.0.0
           <entry key="twig" value="86" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
+<<<<<<< HEAD
           <entry key="Markdown" value="7" />
           <entry key="PHP" value="10" />
+=======
+          <entry key="Markdown" value="2" />
+          <entry key="PHP" value="54" />
+>>>>>>> hotfix/1.0.0
           <entry key="Twig" value="86" />
         </counts>
       </usages-collector>
@@ -64,14 +78,13 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/var/SymfonyRequirements.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2421" />
-          </provider>
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Repository/ProductRepository.php">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
+<<<<<<< HEAD
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
@@ -105,9 +118,13 @@
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/form/appForm.html.twig">
+=======
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Repository/CategoryRepository.php">
+>>>>>>> hotfix/1.0.0
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="11" selection-start-line="11" selection-end-line="11" />
+            <state relative-caret-position="238">
+              <caret line="14" column="1" lean-forward="true" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -124,7 +141,11 @@
         <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/categories/list.html.twig" />
         <option value="$PROJECT_DIR$/README.md" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/src/AppBundle/Repository/ProductRepository.php" />
+=======
+        <option value="$PROJECT_DIR$/src/AppBundle/Repository/CategoryRepository.php" />
+>>>>>>> hotfix/1.0.0
       </list>
     </option>
   </component>
@@ -260,6 +281,16 @@
               <item name="optime" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="AppBundle" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
+=======
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="optime" type="b2602c69:ProjectViewProjectNode" />
+              <item name="optime" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="AppBundle" type="462c0819:PsiDirectoryNode" />
+>>>>>>> hotfix/1.0.0
               <item name="Repository" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -308,16 +339,20 @@
   </component>
   <component name="TimeTrackingManager">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="7738000" />
 =======
     <option name="totallyTimeSpent" value="4985000" />
 >>>>>>> parent of 206d47d... Elimina product Category
+=======
+    <option name="totallyTimeSpent" value="5032000" />
+>>>>>>> hotfix/1.0.0
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14658849" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -349,6 +384,19 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
+=======
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Repository/CategoryRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="1" lean-forward="true" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Repository/ProductRepository.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+>>>>>>> hotfix/1.0.0
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Category.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1275" />
@@ -372,9 +420,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="298">
           <caret line="22" column="1" lean-forward="true" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
-          <folding>
-            <element signature="e#7#272#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
