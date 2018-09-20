@@ -12,6 +12,7 @@ It's a simple app to management products with its categories, developed by [jdav
 
 ### Features
 * Create Categories.
+
 * Create Products with category dependency.
 * List Produts And Categories allowing to organize alphabetically by columns.
 * Allows to edit products and categories.
