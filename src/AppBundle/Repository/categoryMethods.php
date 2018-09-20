@@ -11,5 +11,7 @@ namespace AppBundle\Repository;
 
 class categoryMethods
 {
-
+    function hello(){
+        echo "hello World";
+    }
 }
